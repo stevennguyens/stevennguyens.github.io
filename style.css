@@ -157,7 +157,7 @@ h2 {
 }
 
 .painting {
-    transform: var(--translate);
+    transform: translate(var(--x), var(--y));
 }
 
 /* center painting with info */
@@ -187,22 +187,28 @@ h2 {
     color: var(--font);
 } 
 
+.info span,
+.email {
+    font-family: 'IM Fell DW Pica';
+    font-style: italic;
+}
+
 .painting .info div {
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
 
-.painting .info h3 {
+.painting .info .email{
     font-weight: 400;
-    color: var(--dark-maroon);
-    border-bottom: 1px solid var(--dark-maroon);
+    color: var(--font);
+    border-bottom: 1px solid var(--font);
     cursor: pointer;
 }
 
 .painting .info h3:hover {
-    color: var(--font);
-    border-bottom: 1px solid var(--font);
+    color: var(--dark-maroon);
+    border-bottom: 1px solid var(--dark-maroon);
 }
 
 
