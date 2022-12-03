@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary: rgb(227, 227, 227);
-    --font: rgb(42, 42, 42);
+    --primary: rgb(27, 27, 27);
+    --font: rgb(227, 227, 227);
     --light-font: rgb(91, 91, 91);
     --dark-font: rgb(10, 10, 10);
     --light-grey: rgb(155, 155, 155);
@@ -47,7 +47,7 @@ h2 {
 /* sidebar */
 .sidebar {
     position: fixed;
-    padding: 5em;
+    padding: 5em 3em 5em 5em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -97,17 +97,12 @@ h2 {
 }
 
 /* projects */
-#projects {
-    background: var(--font);
-    color: var(--primary);
-}
-
 .project {
     background: var(--light-grey);
 }
 
 #projects h2 {
-    font-size: 5rem;
+    font-size: 7rem;
     align-self: center;
     font-weight: 900;
 }
@@ -152,14 +147,19 @@ h2 {
 .painting .info h2 {
     font-weight: 100;
     font-size: 8rem;
-    color: var(--primary);
+    color: var(--font);
 } 
+
+.painting .info div {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 
 .painting .info h3 {
     font-weight: 400;
-    color: var(--primary);
-    text-decoration: underline;
-    padding-top: 20px;
+    color: var(--font);
+    border-bottom: 1px solid var(--font);
     cursor: pointer;
 }
 
@@ -187,7 +187,7 @@ h2 {
 
 /* painting four */
 .painting:nth-child(4) {
-    transform: translate(-100px, 50px);
+    transform: translate(0px, 50px);
 }
 
 /* painting five */
