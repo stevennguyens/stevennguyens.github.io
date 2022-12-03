@@ -3,21 +3,23 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Archivo', Helvetica, Arial, sans-serif;
-    color: var(--font);
 }
 
 :root {
     --primary: rgb(227, 227, 227);
     --font: rgb(42, 42, 42);
+    --light-font: rgb(91, 91, 91);
+    --dark-font: rgb(10, 10, 10);
     --light-grey: rgb(155, 155, 155);
-    --sidebar-width: 220px;
+    --sidebar-width: 12em;
+    --contact-background: #551a1d;
 }
 
 body {
     background: var(--primary);
-    display: grid;
-    grid-template-columns: var(--sidebar-width) auto;
-    grid-template-rows: repeat(2, 100vh)
+    display: flex;
+    flex-direction: column;
+    color: var(--font);
 }
 
 .text-scale {
@@ -31,27 +33,25 @@ h2 {
 
 .heading {
     font-size: 1.5rem;
-    padding-bottom: 15px;
+    padding-bottom: 1em;
 }
 
 /* standard container */
 .container {
-    /* padding: 100px 50px 50px 225px; */
     height: 100vh;
-    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
-    padding: 50px 0px;
+    padding: 3em var(--sidebar-width) 0px var(--sidebar-width);
 }
 
 /* sidebar */
 .sidebar {
     position: fixed;
-    padding: 60px 30px 60px 80px;
-    /* border-right: 1px solid var(--light-grey); */
-    height: 90vh; 
-    top: 50%;
-    transform: translate(0%, -50%);
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .sidebar ul {
@@ -61,14 +61,18 @@ h2 {
 }
 
 .sidebar ul li {
-    margin-bottom: 10px;
+    margin-bottom: 1em;
+    cursor: pointer;
 }
 
+.sidebar ul li:hover {
+    color: var(--light-font);
+}
 /* info */
 #info {
-    grid-row: 1 / 2;
     justify-content: space-between;
-    padding: 200px 0px 80px 0px;
+    padding-top: 15em;
+    padding-bottom: 5em;
 }
 
 .name {
@@ -84,7 +88,7 @@ h2 {
 
 #info p {
     font-weight: 200;
-    width: 500px;
+    width: 29em;
 }
 
 .greetings h2 {
@@ -94,9 +98,8 @@ h2 {
 
 /* projects */
 #projects {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-    margin: 0 var(--sidebar-width);
+    background: var(--font);
+    color: var(--primary);
 }
 
 .project {
@@ -110,7 +113,129 @@ h2 {
 }
 
 /* contact */
-#contact h2 {
-    font-weight: 100;
-    justify-content: center;
+#contact {
+    background: var(--contact-background);
 }
+
+/* paintings */
+
+.paintings {
+    display: flex;
+    align-items: flex-start;
+}
+
+.painting img {
+    width: 150px;
+}
+
+/* painting one */
+.painting:nth-child(1) {
+    transform: translate(310px, 200px);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.painting .info,
+.painting:nth-child(1) img {
+    grid-row: 1 / 2;;
+    grid-column: 1 / 2;
+}
+
+.painting .info {
+    align-self: center;
+    font-size: .8rem;
+    z-index: 2;
+    text-align: center;
+}
+
+.painting .info h2 {
+    font-weight: 100;
+    font-size: 8rem;
+    color: var(--primary);
+} 
+
+.painting .info h3 {
+    font-weight: 400;
+    color: var(--primary);
+    text-decoration: underline;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.painting .info h3:hover {
+    color: var(--light-grey)
+}
+
+.painting:nth-child(1) img {
+    width: 500px;
+}
+
+/* painting two */
+.painting:nth-child(2) {
+    transform: translate(190px, 560px);
+}
+
+/* painting three */
+.painting:nth-child(3) {
+    transform: translate(200px, 250px);
+}
+
+.painting:nth-child(3) img {
+    width: 170px;
+}
+
+/* painting four */
+.painting:nth-child(4) {
+    transform: translate(-100px, 50px);
+}
+
+/* painting five */
+.painting:nth-child(5) {
+    transform: translate(-830px, 400px);
+}
+
+.painting:nth-child(5) img {
+    width: 130px;
+}
+
+/* painting six */
+.painting:nth-child(6) {
+    transform: translate(-880px, 230px);
+}
+
+.painting:nth-child(6) img {
+    width: 70px;
+}
+
+/* painting seven */
+.painting:nth-child(7) {
+   transform: translate(-840px, 55px);
+}
+
+.painting:nth-child(7) img {
+    width: 70px;
+}
+
+/* painting eight */
+.painting:nth-child(8) {
+   transform: translate(-1050px, 70px);
+}
+
+.painting:nth-child(8) img {
+    width: 73px;
+}
+
+/* painting nine */
+.painting:nth-child(9) {
+    transform: translate(-1000px, 570px);
+ }
+ 
+ .painting:nth-child(9) img {
+     width: 180px;
+ }
+
+
+
+
+
