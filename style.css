@@ -12,7 +12,8 @@
     --dark-font: rgb(10, 10, 10);
     --light-grey: rgb(155, 155, 155);
     --sidebar-width: 12em;
-    --contact-background: #551a1d;
+    --maroon: #5b1e21;
+    --dark-maroon: #240f10;
 }
 
 body {
@@ -58,15 +59,26 @@ h2 {
     list-style: none;
     font-weight: 600;
     text-align: right;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar ul li {
     margin-bottom: 1em;
     cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,0);
+    align-self: flex-end;
+    padding-bottom: 5px;
 }
 
-.sidebar ul li:hover {
-    color: var(--light-font);
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--font);
+    padding: 0px 0px 5px 5px;
+}
+
+.sidebar ul li a:hover {
+    border-bottom: 1px solid var(--font);
 }
 /* info */
 #info {
@@ -109,7 +121,7 @@ h2 {
 
 /* contact */
 #contact {
-    background: var(--contact-background);
+    background: var(--maroon);
 }
 
 /* paintings */
@@ -158,13 +170,14 @@ h2 {
 
 .painting .info h3 {
     font-weight: 400;
-    color: var(--font);
-    border-bottom: 1px solid var(--font);
+    color: var(--dark-maroon);
+    border-bottom: 1px solid var(--dark-maroon);
     cursor: pointer;
 }
 
 .painting .info h3:hover {
-    color: var(--light-grey)
+    color: var(--font);
+    border-bottom: 1px solid var(--font);
 }
 
 .painting:nth-child(1) img {
@@ -187,9 +200,13 @@ h2 {
 
 /* painting four */
 .painting:nth-child(4) {
-    transform: translate(0px, 50px);
+    transform: translate(-100px, 50px);
 }
 
+.painting:nth-child(4) img:hover {
+    transform: rotate(2deg) translate(5px, 5px);
+    transition: all ease-in .1s;
+}
 /* painting five */
 .painting:nth-child(5) {
     transform: translate(-830px, 400px);
