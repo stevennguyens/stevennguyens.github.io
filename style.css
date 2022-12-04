@@ -28,11 +28,10 @@ body {
 }
 
 /* scroll animations */
-@media(prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .hidden > * {
     opacity: 0;
-    box-shadow: 0;
-    transition: opacity 1s;
+    transition: opacity ease-in .7s, box-shadow 3s;
   }
 }
 
@@ -132,17 +131,24 @@ h2 {
     background: var(--light-grey);
 }
 
-#projects h2 {
-    font-size: 7rem;
-    align-self: center;
+#project-header {
+    font-size: 10rem;
+    align-self: flex-end;
     font-weight: 900;
+}
+
+#project-header span {
+    
+}
+
+#project-header span.show {
+
 }
 
 /* contact */
 #contact {
     background: var(--maroon); 
-    transition: box-shadow 5s;
-    box-shadow: rgba(0, 0, 0, 0.666) 0px 0px 140px 130px inset;
+    padding: 0;
 }
 
 .contact-load {
@@ -150,14 +156,33 @@ h2 {
 }
 
 /* paintings */
-
 .paintings {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
+    padding: 3em var(--sidebar-width) 0px var(--sidebar-width);
+    position: relative;
+    /* box-shadow: rgba(0, 0, 0, 0.84) 0px 0px 260px 250px inset; */
+}
+
+.paintings::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: rgba(0, 0, 0, 0.515) 0px 0px 260px 100px inset;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .painting {
     transform: translate(var(--x), var(--y));
+}
+
+.painting img {
+    pointer-events: none;
 }
 
 /* center painting with info */
@@ -177,8 +202,8 @@ h2 {
 .painting .info {
     align-self: center;
     font-size: .8rem;
-    z-index: 2;
     text-align: center;
+    z-index: 2;
 }
 
 .painting .info h2 {
