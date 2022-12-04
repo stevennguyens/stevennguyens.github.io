@@ -1,6 +1,6 @@
 // intersection observer
 let options = {
-    rootMargin: '0%',
+    rootMargin: '-10%',
     threshold: 0.0,
 }
 
@@ -9,6 +9,7 @@ let observer = new IntersectionObserver(showContent, options);
 function showContent(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            console.log(entry.target);
             entry.target.classList.add('show');
         } 
     })
@@ -39,7 +40,14 @@ function handleScroll() {
         newY = top ? y + (scrollY * ratioY) : y - (scrollY * ratioY);
         painting.style.transform = `translate(${newX}px, ${newY}px)`;
     })
-    
+    let greetings = document.querySelector('.greetings');
+    let about = document.querySelector('.about');
+    let projectTitle = document.getElementById('project-header');
+    greetings.style.transform = `translateY(${scrollY ? scrollY / 10 : 0}%)`;
+    about.style.transform = `translateY(${scrollY ? -scrollY / 10 : 0}%)`;
+    projectTitle.style.transform = `translateY(${(scrollY > 900) ? -scrollY / 30 : 0}%)`;
+
+    console.log(scrollY )
 }
 
 let paintings = document.querySelectorAll(".painting");
@@ -47,8 +55,8 @@ window.addEventListener("scroll", handleScroll)
 let sections = document.querySelectorAll("section");
 sections.forEach((section) => observer.observe(section));
 
-let projectTitle = document.getElementById('project-header');
-let newString = '';
-let text = projectTitle.innerHTML.split('');
-text.map(letter => newString += `<span>${letter}</span>`);
-projectTitle.innerHTML = newString;
+// let projectTitle = document.getElementById('project-header');
+// let newString = '';
+// let text = projectTitle.innerHTML.split('');
+// text.map(letter => newString += `<span>${letter}</span>`);
+// projectTitle.innerHTML = newString;
