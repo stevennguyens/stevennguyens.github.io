@@ -42,10 +42,10 @@ function handleScroll() {
     })
     let greetings = document.querySelector('.greetings');
     let about = document.querySelector('.about');
-    let projectTitle = document.getElementById('project-header');
+    // let projectTitle = document.getElementById('project-header');
     greetings.style.transform = `translateY(${scrollY < 600 ? scrollY / 8 : 0}%)`;
     about.style.transform = `translateY(${scrollY < 800 ? -scrollY / 10 : 0}%)`;
-    projectTitle.style.transform = `translateY(${(scrollY < 1400) ? -scrollY / 30 : 0}%)`;
+    // projectTitle.style.transform = `translateY(${(scrollY < 1400) ? -scrollY / 30 : 0}%)`;
 
     document.getElementById('scrollY').innerHTML = scrollY;
 }

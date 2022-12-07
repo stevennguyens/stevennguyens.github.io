@@ -61,7 +61,7 @@ h2 {
     display: flex;
     flex-direction: column;
     padding: 3em var(--sidebar-width) 0px var(--sidebar-width);
-    overflow: hidden
+    /* overflow: hidden */
 }
 
 /* sidebar */
