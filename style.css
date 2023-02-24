@@ -231,7 +231,7 @@ h2 {
 } 
 
 .info span,
-.email {
+.email a {
     font-family: 'IM Fell DW Pica';
     font-style: italic;
 }
@@ -242,14 +242,15 @@ h2 {
     padding-top: 20px;
 }
 
-.painting .info .email{
+.painting .info .email a{
     font-weight: 400;
     color: var(--font);
     border-bottom: 1px solid var(--font);
     cursor: pointer;
+    text-decoration: none;
 }
 
-.painting .info h3:hover {
+.painting .info .email a:hover {
     color: var(--dark-maroon);
     border-bottom: 1px solid var(--dark-maroon);
 }
