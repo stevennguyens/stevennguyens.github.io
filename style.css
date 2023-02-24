@@ -94,7 +94,7 @@ h2 {
 .sidebar ul li a {
     text-decoration: none;
     color: var(--font);
-    padding: 0px 0px 5px 5px;
+    padding: 0px 0px 8px 0px;
 }
 
 .sidebar ul li a:hover {
@@ -138,24 +138,24 @@ h2 {
 }
 
 .project {
-    background: var(--light-grey);
+    background: rgba(128, 128, 128, 0.22);
+    height: 550px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #project-header {
     font-size: 10rem;
     font-weight: 900;
     align-self: flex-end;
+    margin-bottom: 20px;
     /* transition: all ease-out .1s  */
 }
 
 #project-header.show {
     transform: translateX(0%);
-}
-#project-header span {
-}
-
-#project-header span.show {
-
 }
 
 /* contact */
