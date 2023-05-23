@@ -9,7 +9,6 @@ let observer = new IntersectionObserver(showContent, options);
 function showContent(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            console.log(entry.target);
             entry.target.classList.add('show');
         } 
     })
