@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;400;500;600;700;800;900&family=IM+Fell+DW+Pica:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://kit.fontawesome.com/daf7b3ab0c.js" crossorigin="anonymous"></script>
     <script defer src="script.js"></script>
 </head>
@@ -23,41 +24,89 @@
         </ul>
         <ul>
             <li><a href="mailto:steventnguyen13@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
-            <li><a><i class="fa-brands fa-linkedin"></i></a></li>
-            <li><a href="https://www.github.com/stevennguyens"><i class="fa-brands fa-github"></i></a></li>
+            <li><a target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.github.com/stevennguyens" target="_blank"><i class="fa-brands fa-github"></i></a></li>
         </ul>
     </div>
     <section class="container hidden" id="info">
         <div class="greetings">
             <h2 class="text-scale">hi. it's me,</h2>
             <h1 class="name">Steven Nguyen</h1>
-            <p class="title">full-stack software engineer student</p>
+            <p class="title">full-stack software developer</p>
         </div>
+        <div class="paintings">
+            <img alt="painting-2" width="150" src="./images/painting-2.png">
+            <img alt="painting-4" width="150" src="./images/painting-4.png">
+            <img alt="painting-8" width="73" src="./images/painting-8.png">
+        </div>
+        
         <div class="about">
             <h2 class="heading text-scale">a little about me</h2>
-            <p>A developer in Los Angeles who uses lines of code to create visual & logical art. My raison dêtre is jamming out to music + karaoke, 
-                fictional books, wandering through museums, indulging in Marvel films&ndash;& occasionally providing solutions to problems by crafting visually-appealing, 
+            <p>A developer in Los Angeles who uses lines of code to create visual & logical art. My raison dêtre is jamming out to music, 
+                karaoke, wandering through museums, indulging in Marvel films&ndash;& occasionally providing solutions to problems by crafting visually-appealing, 
                 effecient software.</p>
         </div>
     </section>
-    <section class="container hidden" id="projects">
+    <section class="hidden" id="projects">
         <h2 class="text-scale" id="project-header">projects</h2>
         <div class="project">
-            <h3 class="project-name text-scale">coming soon...</h3>
+            <div class="left">
+                <video controls loop muted width="440">
+                    <source src="videos/museranker-video.mov" type="video/mp4">
+                </video>
+            </div>
+            <div class="right">
+                <h3 class="project-name text-scale">Museranker</h3>
+                <p>Web app using Spotify API to create ranklists for tracks, albums, or artists for music fanatics.</p>
+                <p>React, Node, Express, MongoDB, SCSS</p>
+                <div class="buttons">
+                    <a class="btn demo-btn" href="https://museranker.onrender.com" target="_blank">
+                        Demo
+                        <span class="open-in-new material-symbols-outlined">
+                        open_in_new
+                        </span>
+                    </a> 
+                    <a class="btn code-btn" href="https://github.com/stevennguyens/album-ranker-project" target="_blank">
+                        Code
+                        <i class="fa-brands fa-github"></i>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="left">
+                <video controls loop muted width="200">
+                    <source src="videos/batch-demo-1.mov" type="video/mp4">
+                </video>
+                <video controls loop muted width="200">
+                    <source src="videos/batch-demo-2.mov" type="video/mp4">
+                </video>
+            </div>
+            <div class="right">
+                <h3 class="project-name text-scale">Batch</h3>
+                <p>Android mobile app built by a team of 5 developers. With your own group, you can find and match with other groups--think Tinder for groups!</p>
+                <p>Kotlin, Firebase</p>
+                <div class="buttons">
+                    <a class="btn code-btn" href="https://github.com/Hagop100/Batch" target="_blank">
+                        Code
+                        <i class="fa-brands fa-github"></i>
+                    </a> 
+                </div>
+            </div>
         </div>
     </section>
     <section class="container hidden" id="contact">
-        <div class="paintings">
-            <div class="painting" data-dir-Y="top" data-ratio-Y=".29" style="--x: 310px; --y: -290px;">
-                <div class="info">
-                    <h2>let's <em><span>talk.</span></em></h2>
-                    <div>
-                        <h3 class="email"><a href="mailto:steventnguyen13@gmail.com">steventnguyen13@gmail.com</a></h3>
+        <div class="contact-painting">
+            <div class="painting" data-dir-Y="top" data-ratio-Y=".29" style="--x: 310px; --y: -390px;">
+                    <div class="contact-links">
+                        <h3 class="contact-link"><a href="mailto:steventnguyen13@gmail.com">steventnguyen13@gmail.com</a></h3>
+                        <h3 class="contact-link"><a href="https://github.com/stevennguyens">github.com/stevennguyens</a></h3>
                     </div>
-                </div>
                 <img alt="painting-1" width="500" src="./images/painting-1.png">
+                <h2 class="contact-msg">let's <em><span>work</span></em> together.</h2>
             </div>
-            <div class="painting" data-dir-X="right" data-ratio-X=".3" data-ratio-Y=".4" style="--x: 730px; --y: 1260px;">
+            
+            <!-- <div class="painting" data-dir-X="right" data-ratio-X=".3" data-ratio-Y=".4" style="--x: 730px; --y: 1260px;">
                 <img alt="painting-2" width="150" src="./images/painting-2.png">
             </div>
             <div class="painting" data-ratio-X=".5" data-ratio-Y=".4" style="--x: -650px; --y: 950px;">
@@ -80,7 +129,7 @@
             </div>
             <div class="painting" data-dir-X="right" data-ratio-X=".2" data-ratio-Y=".32" style="--x: -300px; --y: 590px;">
                 <img alt="painting-9" width="180" src="./images/painting-9.png">
-            </div>
+            </div> -->
             
         </div>
     </section>
