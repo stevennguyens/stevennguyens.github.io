@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1">
     <title>Steven Nguyen</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -16,6 +16,9 @@
 </head>
 <body>
     <div class="sidebar">
+        <span class="material-symbols-outlined no-display" id="menu">
+            menu
+        </span>
         <ul class="text-scale">
             <li><a href="#info">info</a></li>
             <li><a href="#projects">projects</a></li>
@@ -49,7 +52,7 @@
     </section>
     <section class="hidden" id="projects">
         <h2 class="text-scale" id="project-header">projects</h2>
-        <div class="project">
+        <div class="project" id="museranker">
             <div class="left">
                 <video controls loop muted width="440">
                     <source src="videos/museranker-video.mov" type="video/mp4">
@@ -73,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="project">
+        <div class="project" id="batch">
             <div class="left">
                 <video controls loop muted width="200">
                     <source src="videos/batch-demo-1.mov" type="video/mp4">
@@ -97,7 +100,7 @@
     </section>
     <section class="container hidden" id="contact">
         <div class="contact-painting">
-            <div class="painting" data-dir-Y="top" data-ratio-Y=".29" style="--x: 310px; --y: -390px;">
+            <div class="painting">
                     <div class="contact-links">
                         <h3 class="contact-link"><a href="mailto:steventnguyen13@gmail.com">steventnguyen13@gmail.com</a></h3>
                         <h3 class="contact-link"><a href="https://github.com/stevennguyens">github.com/stevennguyens</a></h3>

@@ -11,7 +11,7 @@
     --light-font: rgb(91, 91, 91);
     --dark-font: rgb(10, 10, 10);
     --light-grey: rgb(155, 155, 155);
-    --sidebar-width: 12em;
+    --sidebar-width: 0px;
     /* --maroon: #5b1e21; */
     --maroon: #4c6d5c;
     /* --maroon: #adaf8b; */
@@ -25,6 +25,7 @@ html {
 }
 
 body {
+    width: 100vw;
     background: var(--primary);
     display: flex;
     flex-direction: column;
@@ -73,6 +74,7 @@ p {
 .code-btn {
     border: 2px solid var(--maroon);
 }
+
 .code-btn:hover {
     background: var(--maroon);
 }
@@ -109,25 +111,32 @@ h2 {
     height: 100vh;
 }
 
-.container,
-#projects {
-    padding: 3em var(--sidebar-width) 0px var(--sidebar-width);
-}
-
- #projects {
-    display: flex;
-    flex-direction: column;
-}
-
 /* sidebar */
+.no-display {
+    display: none !important;
+}
+
+
 .sidebar {
     position: fixed;
-    padding: 5em 3em 5em 5em;
+    /* padding: 50px 0px 50px 50px; */
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
     z-index: 5;
+    @media screen and (max-width: 1024px) {
+        background-color: var(--primary);
+        height: auto;
+        width: 100vw;
+     }
+}
+
+.sidebar.active {
+    @media screen and (max-width: 1024px) {
+        height: 100vh;
+     }
 }
 
 .sidebar ul {
@@ -136,6 +145,9 @@ h2 {
     text-align: right;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 1024px) {
+        align-self: center;
+    }
 }
 
 .sidebar ul li {
@@ -143,6 +155,11 @@ h2 {
     cursor: pointer;
     align-self: flex-end;
     padding-bottom: 5px;
+
+    @media screen and (max-width: 1024px) {
+        align-self: center;
+        padding-bottom: 40px;
+    }
 }
 
 .sidebar ul li a {
@@ -161,18 +178,25 @@ h2 {
 }
 
 #info {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    padding: 100px 150px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding-top: 15em;
-    padding-bottom: 5em;
+
+    @media screen and (max-width: 1024px) {
+        padding: 100px 50px 50px 50px;
+
+    }
 }
 
-.name {
+.greetings .name {
     font-size: 5rem;
     font-weight: 800;
     letter-spacing: -.2rem;
     word-spacing: .4rem;
+    @media screen and (max-width: 768px) {
+        letter-spacing: -.1rem;
+    }
 }
 
 #info .title {
@@ -180,22 +204,40 @@ h2 {
 }
 
 #info p {
-    width: 29em;
+    width: 450px;
+    @media screen and (max-width: 534px) {
+        width: 300px;
+    }
 }
 
 .greetings h2 {
     font-size: 5rem;
     line-height: 4rem;
+    @media screen and (max-width: 768px) {
+        line-height: 2rem;
+    }
 }
 
-.about {
-    align-self: flex-end;
+.greetings h2,
+.greetings .name {
+    font-size: 5rem;
+    @media screen and (max-width: 768px) {
+        font-size: 3rem;
+    }
 }
+
 
 /* projects */
 #projects {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 50px;
-    gap: 50px;
+    gap: 30px;
+    padding: 0px 130px;
+    @media screen and (max-width: 1024px) {
+        padding: 0px 20px;
+    }
+    
 }
 
 #projects.hidden > * {
@@ -210,8 +252,10 @@ h2 {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     gap: 30px;
-    margin: 20px 0px;
     padding: 40px;
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: auto;
+    }
 }
 
 .left {
@@ -220,11 +264,27 @@ h2 {
     gap: 40px;
 }
 
+#museranker video {
+    @media screen and (max-width: 528px) {
+        width: 100%;
+    }
+}
+
+#batch video {
+    @media screen and (max-width: 528px) {
+        width: 50%;
+    }
+}
+
 .right {
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding-top: 15px;
+    @media screen and (max-width: 1024px) {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 #project-header {
@@ -232,6 +292,9 @@ h2 {
     font-weight: 900;
     align-self: flex-end;
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+        font-size: 5rem;
+    }
     /* transition: all ease-out .1s  */
 }
 
@@ -245,7 +308,6 @@ h2 {
 /* contact */
 #contact {
     background: var(--maroon); 
-    padding: 0;
 }
 
 .contact-load {
@@ -258,6 +320,7 @@ h2 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+    align-self: flex-end;
 }
 
 .paintings img:nth-of-type(1) {
@@ -266,9 +329,14 @@ h2 {
     align-self: center;
 }
 
+.paintings img:nth-of-type(2) {
+    align-self: flex-end;
+}
+
 .paintings img:nth-of-type(3) {
     grid-column: 2/3;
 }
+
 .hidden .contact-painting {
     transition: opacity ease-in .7s;
 }
@@ -278,7 +346,8 @@ h2 {
     height: 100%;
     display: flex;
     align-items: flex-start;
-    padding: 3em var(--sidebar-width) 0px var(--sidebar-width);
+    justify-content: center;
+    /* padding: 3em var(--sidebar-width) 0px var(--sidebar-width); */
     position: relative;
     /* box-shadow: rgba(0, 0, 0, 0.84) 0px 0px 260px 250px inset; */
 }
@@ -295,7 +364,7 @@ h2 {
 }
 
 .painting {
-    transform: translate(var(--x), var(--y));
+    /* transform: translate(var(--x), var(--y)); */
     transition: transform ease-out .3s;
 }
 
@@ -305,8 +374,8 @@ h2 {
 
 /* center painting with info */
 .painting:first-child {
-    transform: translate(310px, 200px);
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
@@ -361,10 +430,3 @@ h2 {
     color: var(--dark-maroon);
     border-bottom: 1px solid var(--dark-maroon);
 }
-
-
-
-
-
-
-
