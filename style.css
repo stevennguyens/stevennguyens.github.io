@@ -39,6 +39,7 @@ p {
 /* buttons */
 .buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
 }
 
@@ -82,8 +83,6 @@ p {
 @media (prefers-reduced-motion: no-preference) {
   .hidden > * {
     opacity: 0;
-    /* transition: opacity ease-in .7s, box-shadow 20s; */
-    /* transition: all .7s; */
   }
 }
 
@@ -93,7 +92,6 @@ p {
 
 /* general styles */
 .text-scale {
-    /* text-transform: uppercase; */
     transform: scaleY(.9);
 }
 
@@ -107,7 +105,8 @@ h2 {
 }
 
 /* standard container */
-.container {
+.container,
+.sidebar {
     height: 100vh;
 }
 
@@ -116,27 +115,13 @@ h2 {
     display: none !important;
 }
 
-
 .sidebar {
     position: fixed;
-    /* padding: 50px 0px 50px 50px; */
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
     z-index: 5;
-    @media screen and (max-width: 1024px) {
-        background-color: var(--primary);
-        height: auto;
-        width: 100vw;
-     }
-}
-
-.sidebar.active {
-    @media screen and (max-width: 1024px) {
-        height: 100vh;
-     }
 }
 
 .sidebar ul {
@@ -145,9 +130,6 @@ h2 {
     text-align: right;
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: 1024px) {
-        align-self: center;
-    }
 }
 
 .sidebar ul li {
@@ -155,11 +137,6 @@ h2 {
     cursor: pointer;
     align-self: flex-end;
     padding-bottom: 5px;
-
-    @media screen and (max-width: 1024px) {
-        align-self: center;
-        padding-bottom: 40px;
-    }
 }
 
 .sidebar ul li a {
@@ -178,15 +155,10 @@ h2 {
 }
 
 #info {
-    padding: 100px 150px;
+    padding: 120px 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    @media screen and (max-width: 1024px) {
-        padding: 100px 50px 50px 50px;
-
-    }
 }
 
 .greetings .name {
@@ -194,9 +166,6 @@ h2 {
     font-weight: 800;
     letter-spacing: -.2rem;
     word-spacing: .4rem;
-    @media screen and (max-width: 768px) {
-        letter-spacing: -.1rem;
-    }
 }
 
 #info .title {
@@ -204,28 +173,18 @@ h2 {
 }
 
 #info p {
-    width: 450px;
-    @media screen and (max-width: 534px) {
-        width: 300px;
-    }
+    max-width: 450px;
 }
 
 .greetings h2 {
     font-size: 5rem;
     line-height: 4rem;
-    @media screen and (max-width: 768px) {
-        line-height: 2rem;
-    }
 }
 
 .greetings h2,
 .greetings .name {
     font-size: 5rem;
-    @media screen and (max-width: 768px) {
-        font-size: 3rem;
-    }
 }
-
 
 /* projects */
 #projects {
@@ -234,10 +193,6 @@ h2 {
     margin-bottom: 50px;
     gap: 30px;
     padding: 0px 130px;
-    @media screen and (max-width: 1024px) {
-        padding: 0px 20px;
-    }
-    
 }
 
 #projects.hidden > * {
@@ -253,9 +208,6 @@ h2 {
     justify-content: center;
     gap: 30px;
     padding: 40px;
-    @media screen and (max-width: 1024px) {
-        grid-template-columns: auto;
-    }
 }
 
 .left {
@@ -264,27 +216,25 @@ h2 {
     gap: 40px;
 }
 
-#museranker video {
-    @media screen and (max-width: 528px) {
-        width: 100%;
-    }
-}
-
-#batch video {
-    @media screen and (max-width: 528px) {
-        width: 50%;
-    }
-}
-
 .right {
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding-top: 15px;
-    @media screen and (max-width: 1024px) {
-        align-items: center;
-        text-align: center;
-    }
+}
+
+.tech {
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech p {
+    background-color: var(--maroon);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: .9rem;
 }
 
 #project-header {
@@ -292,10 +242,6 @@ h2 {
     font-weight: 900;
     align-self: flex-end;
     margin-bottom: 20px;
-    @media screen and (max-width: 768px) {
-        font-size: 5rem;
-    }
-    /* transition: all ease-out .1s  */
 }
 
 #project-header.show {
@@ -317,7 +263,7 @@ h2 {
 /* paintings */
 .paintings {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     align-self: flex-end;
@@ -326,15 +272,23 @@ h2 {
 .paintings img:nth-of-type(1) {
     justify-self: flex-end;
     grid-row: 1/3;
+    grid-column: 2/3;
     align-self: center;
+    width: 70%;
+    max-width: 200px;
 }
 
 .paintings img:nth-of-type(2) {
     align-self: flex-end;
+    grid-column: 3/4;
+    width: 70%;
+    max-width: 170px;
 }
 
 .paintings img:nth-of-type(3) {
-    grid-column: 2/3;
+    grid-column: 3/4;
+    width: 40%;
+    max-width: 100px;
 }
 
 .hidden .contact-painting {
@@ -347,9 +301,7 @@ h2 {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    /* padding: 3em var(--sidebar-width) 0px var(--sidebar-width); */
     position: relative;
-    /* box-shadow: rgba(0, 0, 0, 0.84) 0px 0px 260px 250px inset; */
 }
 
 .contact-painting::after {
@@ -364,7 +316,6 @@ h2 {
 }
 
 .painting {
-    /* transform: translate(var(--x), var(--y)); */
     transition: transform ease-out .3s;
 }
 
@@ -373,31 +324,24 @@ h2 {
 }
 
 /* center painting with info */
-.painting:first-child {
+.contact-painting .painting {
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    text-align: center;
+}
+
+.contact-painting .painting img {
+    max-width: 500px;
 }
 
 .painting .contact-links,
-.painting:first-child img {
+.contact-painting .painting img {
+    justify-self: center;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
 }
-
-.painting .contact-links {
-    align-self: center;
-    font-size: .8rem;
-    text-align: center;
-    z-index: 2;
-}
-
-.painting .contact-links h2 {
-    font-weight: 100;
-    font-size: 8rem;
-    color: var(--font);
-} 
 
 /* contact */
 .contact-msg {
@@ -429,4 +373,128 @@ h2 {
 .contact-link a:hover {
     color: var(--dark-maroon);
     border-bottom: 1px solid var(--dark-maroon);
+}
+
+/* media query */
+
+/* max width 1024px */
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        background-color: var(--primary);
+        height: auto;
+        width: 100vw;
+    }
+    .sidebar.active {
+        height: 100vh;
+    }
+    .sidebar ul {
+        align-self: center;
+    }
+    .sidebar ul li {
+        align-self: center;
+        padding-bottom: 40px;
+    }
+    #info {
+        padding: 100px 50px 50px 50px;
+    }
+    #projects {
+        padding: 0px 20px;
+    }
+    .project {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .buttons {
+        justify-content: center;
+        gap: 20px;
+    }
+    .right {
+        align-items: center;
+        text-align: center;
+    }
+    .tech {
+        justify-content: center;
+    }
+    #contact {
+        height: 90vh;
+    }
+    .contact-painting .painting img {
+        width: 70%;
+    }
+ }
+ /* max width 768px */
+@media screen and (max-width: 768px) {
+    #project-header {
+        font-size: 5rem;
+    }
+
+    .greetings .name {
+        letter-spacing: -.1rem;
+    }
+
+    .greetings h2 {
+        line-height: 2rem;
+    }
+    .greetings h2,
+    .greetings .name {
+        font-size: 3rem;
+    }
+}
+/* max width 528px */
+@media screen and (max-width: 534px) {
+    #museranker video {
+        max-width: 440px;
+        width: 100%;
+        height: auto;
+    }
+
+    #batch video {
+        width: 50%;
+        height: auto;
+    }
+
+   
+}
+ /* max width 480px */
+@media screen and (max-width: 480px) {
+    #info {
+        padding: 100px 20px 50px 20px; 
+    }
+
+    .greetings h2 {
+        font-size: 2rem;
+    }
+
+    .greetings .name {
+        font-size: 2.3rem;
+        line-height: 2rem;
+    }
+
+    .greetings .title {
+        font-size: .8rem;
+        margin-top: 10px;
+    }
+
+    .about h2 {
+        font-size: 1.3rem;
+    }
+
+    .about p {
+        font-size: .9rem;
+    }
+
+    #project-header {
+        font-size: 3.5rem;
+    }
+    #contact {
+        height: 60vh;
+    }
+
+    .contact-msg {
+        font-size: 1.3rem;
+    }
+
+    .contact-link a {
+        font-size: .8rem;
+    }
 }

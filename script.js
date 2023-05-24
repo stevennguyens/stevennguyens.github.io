@@ -15,8 +15,9 @@ function showContent(entries) {
 }
 
 let paintingRatio = 40
+// while scrolling, some elements will have a motion effect
 function handleScroll() {
-    painting.style.transform = `translateY(${scrollY > 1200 ? scrollY / paintingRatio : 0}%)`;
+    painting.style.transform = `translateY(${scrollY > 800 ? scrollY / paintingRatio : 0}%)`;
 
     let greetings = document.querySelector('.greetings');
     let about = document.querySelector('.about');
@@ -53,7 +54,7 @@ if (media.matches) {
     });
 }
 
-// toggle menu 
+// toggle menu based on the innerhtml of the element
 function toggleMenu(menu) {
     if (menu.innerHTML.trim() === "menu") {
         menu.innerHTML = "close";
