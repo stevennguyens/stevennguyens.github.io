@@ -79,6 +79,14 @@ p {
 .code-btn:hover {
     background: var(--maroon);
 }
+
+#menu {
+    cursor: pointer;
+}
+
+#menu:hover {
+    color: var(--light-font)
+}
 /* scroll animations */
 @media (prefers-reduced-motion: no-preference) {
   .hidden > * {
@@ -105,7 +113,11 @@ h2 {
 }
 
 /* standard container */
-.container,
+.container {
+    height: minmax(100%, 100vh);
+    /* height: 100vh; */
+}
+
 .sidebar {
     height: 100vh;
 }
@@ -122,6 +134,7 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
     z-index: 5;
+    overflow-y: scroll;
 }
 
 .sidebar ul {
@@ -223,6 +236,10 @@ h2 {
     padding-top: 15px;
 }
 
+.right > p {
+    width: 80%;
+}
+
 .tech {
     padding-bottom: 10px;
     display: flex;
@@ -253,11 +270,8 @@ h2 {
 }
 /* contact */
 #contact {
+    height: 100vh;
     background: var(--maroon); 
-}
-
-.contact-load {
-    box-shadow: rgba(0, 0, 0, 0.666) 0px 0px 140px 130px inset;
 }
 
 /* paintings */
@@ -299,9 +313,10 @@ h2 {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 1;
 }
 
 .contact-painting::after {
@@ -313,6 +328,7 @@ h2 {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: -1;
 }
 
 .painting {
@@ -427,11 +443,9 @@ h2 {
     #project-header {
         font-size: 5rem;
     }
-
     .greetings .name {
         letter-spacing: -.1rem;
     }
-
     .greetings h2 {
         line-height: 2rem;
     }
@@ -442,58 +456,48 @@ h2 {
 }
 /* max width 528px */
 @media screen and (max-width: 534px) {
-    #museranker video {
+    #museranker video,
+    #marvel-comics video {
         max-width: 440px;
         width: 100%;
         height: auto;
     }
-
     #batch video {
         width: 50%;
         height: auto;
     }
-
-   
 }
  /* max width 480px */
 @media screen and (max-width: 480px) {
     #info {
         padding: 100px 20px 50px 20px; 
     }
-
     .greetings h2 {
         font-size: 2rem;
     }
-
     .greetings .name {
-        font-size: 2.3rem;
-        line-height: 2rem;
+        font-size: 2.9rem;
+        line-height: 2.4rem;
     }
-
     .greetings .title {
         font-size: .8rem;
         margin-top: 10px;
     }
-
     .about h2 {
         font-size: 1.3rem;
     }
-
     .about p {
         font-size: .9rem;
     }
-
     #project-header {
         font-size: 3.5rem;
     }
     #contact {
-        height: 60vh;
+        /* height: minmax(100vh, 60vh); */
     }
-
     .contact-msg {
         font-size: 1.3rem;
     }
-
     .contact-link a {
         font-size: .8rem;
     }

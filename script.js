@@ -1,3 +1,4 @@
+document.location.hash = ""
 // intersection observer
 let options = {
     rootMargin: '-10%',
@@ -14,10 +15,12 @@ function showContent(entries) {
     })
 }
 
-let paintingRatio = 40
+// let paintingRatio = 40;
+// let val = 800;
 // while scrolling, some elements will have a motion effect
 function handleScroll() {
-    painting.style.transform = `translateY(${scrollY > 800 ? scrollY / paintingRatio : 0}%)`;
+    // const scrollY = window.scrollY
+    //painting.style.transform = `translateY(${scrollY > 800 ? scrollY / paintingRatio : 0}%)`;
 
     let greetings = document.querySelector('.greetings');
     let about = document.querySelector('.about');
@@ -25,7 +28,7 @@ function handleScroll() {
     about.style.transform = `translateY(${scrollY < 800 ? -scrollY / 10 : 0}%)`;
 }
 
-let painting = document.querySelector(".contact-painting .painting");
+// let painting = document.querySelector(".contact-painting .painting");
 window.addEventListener("scroll", handleScroll)
 let sections = document.querySelectorAll("section");
 sections.forEach((section) => observer.observe(section));
@@ -35,27 +38,46 @@ var media = window.matchMedia("(max-width: 1024px)");
 var menu = document.getElementById("menu");
 var sidebar = document.querySelector(".sidebar");
 var sidebarUl = sidebar.querySelectorAll("ul");
-menu.addEventListener("click", (e) => {
-    toggleMenu(menu)
-})
 
-// make menu visible when media is phone or tablet (768px or less)
-if (media.matches) {
-    menu.classList.remove("no-display");
-    paintingRatio = 30;
-    painting.querySelector("img").width = "400";
-    sidebarUl.forEach((ul) => {
-        ul.classList.add("no-display");
-        ul.querySelectorAll("li").forEach(li => {
-            li.addEventListener("click", () => {
-                toggleMenu(menu)
+const menuListener = () => toggleMenu(menu)
+// listener for when media matches
+const mediaMatchesListener = () => {
+    if (media.matches) {
+        console.log("matches")
+        menu.addEventListener("click", menuListener)
+        menu.classList.remove("no-display");
+        // paintingRatio = 30;
+        // painting.querySelector("img").width = "400";
+        if (menu.innerHTML.trim() !== "menu") {
+            console.log("menu toggled")
+            toggleMenu(menu)
+        }
+        sidebarUl.forEach((ul) => {
+            ul.classList.add("no-display");
+            ul.querySelectorAll("li").forEach(li => {
+                li.addEventListener("click", menuListener)
             })
-        })
-    });
+        });
+    } else {
+        console.log("not matches");
+        menu.removeEventListener("click", menuListener)
+        menu.classList.add("no-display");
+        sidebarUl.forEach((ul) => {
+            ul.classList.remove("no-display");
+            ul.querySelectorAll("li").forEach(li => {
+                li.removeEventListener("click", menuListener)
+            })
+        });
+    }
 }
+// initially check if media screen matches
+mediaMatchesListener()
+// add event listener
+media.addEventListener("change", mediaMatchesListener)
 
 // toggle menu based on the innerhtml of the element
 function toggleMenu(menu) {
+    console.log("toggle menu")
     if (menu.innerHTML.trim() === "menu") {
         menu.innerHTML = "close";
         sidebarUl.forEach((ul) => ul.classList.remove("no-display"));
