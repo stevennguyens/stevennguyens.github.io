@@ -6,14 +6,14 @@
 }
 
 :root {
-    --primary: rgb(17, 17, 17);
-    --font: rgb(227, 227, 227);
+    --font: rgb(17, 17, 17);
+    --primary: rgb(227, 227, 227);
     --light-font: rgb(91, 91, 91);
-    --dark-font: rgb(10, 10, 10);
+    --dark-font: rgb(49, 49, 49);
     --light-grey: rgb(155, 155, 155);
     --sidebar-width: 0px;
     /* --maroon: #5b1e21; */
-    --maroon: #4c6d5c;
+    --maroon: #648373;
     /* --maroon: #adaf8b; */
     /* --maroon: #5b7381; */
     --dark-maroon: #0f2419;
@@ -78,6 +78,7 @@ p {
 
 .code-btn:hover {
     background: var(--maroon);
+    color: var(--primary);
 }
 
 #menu {
@@ -253,6 +254,7 @@ h2 {
     padding: 5px 15px;
     border-radius: 20px;
     font-size: .9rem;
+    color: var(--primary);
 }
 
 #project-header {
